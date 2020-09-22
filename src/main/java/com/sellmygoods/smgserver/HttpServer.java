@@ -15,10 +15,12 @@ public class HttpServer {
     private static final Logger LOG = LoggerFactory.getLogger(HttpServer.class);
 
     public static void main(String[] args) {
-        LOG.info("Server starting...");
 
         ConfigurationManager.getInstance().loadConfigurationFile("src/main/resources/http-config.json");
+        ConfigurationManager.getInstance().loadHttpValidHeaders("src/main/resources/http-headers.json");
         Configuration config = ConfigurationManager.getInstance().getCurrentlyLoadedConfiguration();
+        LOG.info("Server starting...");
+
 
         LOG.info("Using port : {}", config.getPort());
         LOG.info("Using rootDir : {}", config.getRootDir());

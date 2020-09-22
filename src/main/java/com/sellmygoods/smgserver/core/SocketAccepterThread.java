@@ -32,8 +32,13 @@ public class SocketAccepterThread extends Thread {
                 client.start();
             }
         } catch (IOException e) {
-            LOG.error(" ✗ Problem creating socket");
-            e.printStackTrace();
+            LOG.error(" ✗ Problem setting socket", e);
+        } finally {
+            if (serverSocket != null) {
+                try {
+                    serverSocket.close();
+                } catch (IOException ignored) { }
+            }
         }
     }
 }
