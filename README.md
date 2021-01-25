@@ -1,1 +1,1 @@
-# Sell My Goods Resource Server
+# Java HTTP Server
